@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lomupo Plumbing & Heating LLC | Midland Park, NJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #2d5a27;
+    --green-mid: #4a8c3f;
+    --green-bright: #6abf5e;
+    --green-light: #a8d9a0;
+    --earth-tan: #c9a96e;
+    --earth-cream: #f5efe6;
+    --earth-warm: #e8d5b0;
+    --earth-brown: #8b5e3c;
+    --white: #ffffff;
+    --text-dark: #1e2d1a;
+    --shadow: rgba(45,90,39,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Nunito',sans-serif; background:var(--earth-cream); color:var(--text-dark); overflow-x:hidden; }
+  h1,h2,h3,.logo-text { font-family:'Fredoka One',cursive; }
+
+  /* NAV */
+  nav {
+    background: var(--green-dark);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top:0; z-index:200;
+    box-shadow: 0 4px 18px var(--shadow);
+    height: 70px;
+  }
+  .logo-text { font-size:1.35rem; color:var(--earth-tan); }
+  .logo-text span { color:var(--green-bright); }
+  .nav-links { display:flex; gap:1.3rem; list-style:none; align-items:center; }
+  .nav-links a { color:var(--earth-cream); text-decoration:none; font-weight:700; font-size:0.88rem; transition:color .2s; }
+  .nav-links a:hover { color:var(--green-bright); }
+  .nav-cta { background:var(--earth-tan)!important; color:var(--green-dark)!important; padding:0.45rem 1.1rem; border-radius:50px; font-weight:800!important; transition:background .2s,transform .2s!important; }
+  .nav-cta:hover { background:var(--earth-warm)!important; transform:scale(1.05); }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { width:26px; height:3px; background:var(--earth-cream); border-radius:3px; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 55%, #5aaa4e 100%);
+    min-height: 92vh;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding: 5rem 2rem; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events:none;
+  }
+  .hero-blob { position:absolute; border-radius:50%; opacity:0.08; background:var(--earth-tan); animation:floatBlob 8s ease-in-out infinite; }
+  .hero-blob.b1 { width:380px; height:380px; top:-100px; left:-120px; animation-delay:0s; }
+  .hero-blob.b2 { width:250px; height:250px; bottom:-70px; right:-70px; animation-delay:3s; }
+  .hero-blob.b3 { width:170px; height:170px; top:55%; left:6%; animation-delay:5s; }
+  @keyframes floatBlob { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.06)} }
+  .hero-content { position:relative; z-index:2; max-width:840px; }
+  .hero-badge { display:inline-block; background:var(--earth-tan); color:var(--green-dark); font-weight:800; font-size:0.88rem; padding:0.4rem 1.3rem; border-radius:50px; margin-bottom:1.5rem; letter-spacing:1px; text-transform:uppercase; animation:fadeDown .7s ease both; }
+  .hero h1 { font-size:clamp(2.8rem,6.5vw,5rem); color:var(--white); line-height:1.08; margin-bottom:1.2rem; animation:fadeDown .8s ease .15s both; }
+  .hero h1 span { color:var(--earth-tan); }
+  .hero-sub { font-size:clamp(1rem,2.5vw,1.25rem); color:var(--green-light); margin-bottom:2.5rem; font-weight:600; animation:fadeDown .8s ease .3s both; line-height:1.65; }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeDown .8s ease .45s both; }
+  .btn-primary { background:var(--earth-tan); color:var(--green-dark); padding:.9rem 2.3rem; border-radius:50px; font-weight:800; font-size:1.05rem; text-decoration:none; transition:transform .2s,box-shadow .2s; box-shadow:0 6px 24px rgba(0,0,0,.25); display:inline-block; }
+  .btn-primary:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 14px 34px rgba(0,0,0,.3); }
+  .btn-ghost { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,.6); padding:.9rem 2.3rem; border-radius:50px; font-weight:800; font-size:1.05rem; text-decoration:none; transition:background .2s,border-color .2s,transform .2s; display:inline-block; }
+  .btn-ghost:hover { background:rgba(255,255,255,.12); border-color:white; transform:translateY(-3px); }
+  .hero-trust { margin-top:3.5rem; display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; animation:fadeDown .8s ease .6s both; }
+  .trust-item { color:var(--green-light); font-size:.9rem; font-weight:700; display:flex; align-items:center; gap:.5rem; }
+  .trust-item .ti { font-size:1.3rem; }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-22px)} to{opacity:1;transform:translateY(0)} }
+
+  /* SHARED */
+  section { padding:5rem 2rem; }
+  .container { max-width:1120px; margin:0 auto; }
+  .text-center { text-align:center; }
+  .section-eyebrow { font-family:'Fredoka One',cursive; color:var(--green-mid); font-size:.88rem; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:.5rem; }
+  .section-title { font-size:clamp(1.8rem,4vw,2.9rem); color:var(--green-dark); margin-bottom:.9rem; line-height:1.15; }
+  .section-sub { color:#587252; font-size:1.03rem; font-weight:600; max-width:640px; margin:0 auto 3rem; line-height:1.7; }
+
+  /* STATS BAR */
+  .stats-bar { background:var(--green-dark); padding:2.5rem 2rem; }
+  .stats-grid { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:2rem; text-align:center; }
+  .stat-num { font-family:'Fredoka One',cursive; font-size:2.4rem; color:var(--earth-tan); display:block; }
+  .stat-label { color:var(--green-light); font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+
+  /* SERVICES */
+  #services { background:var(--white); }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.8rem; }
+  .service-card { background:var(--earth-cream); border-radius:22px; padding:2.2rem 1.6rem; text-align:center; border:2px solid transparent; transition:border-color .3s,transform .3s,box-shadow .3s; position:relative; overflow:hidden; }
+  .service-card::after { content:''; position:absolute; bottom:0;left:0;right:0; height:4px; background:linear-gradient(90deg,var(--green-mid),var(--earth-tan)); transform:scaleX(0); transition:transform .3s; transform-origin:left; }
+  .service-card:hover { border-color:var(--green-light); transform:translateY(-7px); box-shadow:0 16px 44px var(--shadow); }
+  .service-card:hover::after { transform:scaleX(1); }
+  .svc-icon { font-size:3rem; margin-bottom:1rem; display:block; }
+  .service-card h3 { font-size:1.1rem; color:var(--green-dark); margin-bottom:.6rem; }
+  .service-card p { font-size:.9rem; color:#587252; line-height:1.65; }
+
+  /* AREAS */
+  #areas { background:var(--earth-cream); }
+  .areas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:1rem; margin-top:2rem; }
+  .area-pill { background:var(--white); border:2px solid var(--green-light); border-radius:50px; padding:.7rem 1rem; text-align:center; font-weight:700; font-size:.88rem; color:var(--green-dark); transition:background .2s,color .2s,transform .2s; cursor:default; }
+  .area-pill:hover { background:var(--green-mid); color:white; border-color:var(--green-mid); transform:scale(1.05); }
+
+  /* PROCESS */
+  #process { background:var(--white); }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:2rem; }
+  .step { text-align:center; padding:2rem 1.5rem; background:var(--earth-cream); border-radius:22px; transition:transform .3s,box-shadow .3s; }
+  .step:hover { transform:translateY(-5px); box-shadow:0 12px 36px var(--shadow); }
+  .step-num { width:56px; height:56px; background:linear-gradient(135deg,var(--green-mid),var(--green-dark)); color:white; font-family:'Fredoka One',cursive; font-size:1.6rem; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.1rem; }
+  .step h3 { font-size:1.1rem; color:var(--green-dark); margin-bottom:.5rem; }
+  .step p { font-size:.9rem; color:#587252; line-height:1.65; }
+
+  /* WHY US */
+  #why { background:var(--earth-cream); }
+  .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+  .why-card { background:var(--white); border-radius:20px; padding:2rem; display:flex; gap:1.2rem; align-items:flex-start; box-shadow:0 4px 20px var(--shadow); transition:transform .3s; }
+  .why-card:hover { transform:translateY(-5px); }
+  .why-icon { background:linear-gradient(135deg,var(--green-mid),var(--green-dark)); color:white; width:54px; height:54px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
+  .why-card h3 { font-size:1.05rem; color:var(--green-dark); margin-bottom:.4rem; }
+  .why-card p { font-size:.9rem; color:#6b8065; line-height:1.65; }
+
+  /* REVIEWS */
+  #reviews { background:linear-gradient(135deg,var(--green-dark) 0%,var(--green-mid) 100%); }
+  #reviews .section-title { color:white; }
+  #reviews .section-eyebrow { color:var(--green-light); }
+  #reviews .section-sub { color:var(--green-light); }
+  .stars { color:var(--earth-tan); font-size:1.15rem; margin-bottom:.6rem; letter-spacing:2px; }
+  .rating-badge { display:inline-flex; align-items:center; gap:.8rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:50px; padding:.7rem 1.6rem; margin-bottom:2.5rem; }
+  .rating-num { font-family:'Fredoka One',cursive; font-size:2.2rem; color:var(--earth-tan); }
+  .rating-info .stars { margin-bottom:.1rem; font-size:1rem; }
+  .rating-info .rating-lbl { font-size:.82rem; color:var(--green-light); font-weight:700; }
+
+  /* reviews carousel */
+  .reviews-carousel-wrap { position:relative; overflow:hidden; }
+  .reviews-track { display:flex; gap:1.5rem; transition:transform .45s ease; }
+  .review-card { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:22px; padding:2rem; backdrop-filter:blur(8px); flex:0 0 calc(33.333% - 1rem); min-width:280px; box-sizing:border-box; }
+  .review-quote { font-size:2.5rem; color:var(--earth-tan); line-height:.5; margin-bottom:.8rem; font-family:Georgia,serif; }
+  .review-text { font-size:.93rem; line-height:1.75; color:#dff0db; font-weight:600; margin-bottom:1.1rem; }
+  .reviewer-name { font-weight:800; font-size:.93rem; color:var(--earth-tan); }
+  .reviewer-meta { font-size:.78rem; color:var(--green-light); margin-top:.2rem; }
+  .carousel-btns { display:flex; justify-content:center; gap:1rem; margin-top:2rem; }
+  .carousel-btn { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); color:white; width:46px; height:46px; border-radius:50%; font-size:1.2rem; cursor:pointer; transition:background .2s; }
+  .carousel-btn:hover { background:rgba(255,255,255,.3); }
+  .carousel-dots { display:flex; justify-content:center; gap:.5rem; margin-top:1.2rem; }
+  .dot { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.3); cursor:pointer; transition:background .2s; }
+  .dot.active { background:var(--earth-tan); }
+
+  /* FAQ */
+  #faq { background:var(--white); }
+  .faq-list { max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+  .faq-item { background:var(--earth-cream); border-radius:16px; overflow:hidden; border:2px solid transparent; transition:border-color .2s; }
+  .faq-item.open { border-color:var(--green-light); }
+  .faq-q { padding:1.3rem 1.5rem; font-weight:800; color:var(--green-dark); cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:1rem; gap:1rem; }
+  .faq-arrow { font-size:1.1rem; transition:transform .3s; flex-shrink:0; }
+  .faq-item.open .faq-arrow { transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease,padding .3s; padding:0 1.5rem; }
+  .faq-item.open .faq-a { max-height:200px; padding:0 1.5rem 1.2rem; }
+  .faq-a p { font-size:.93rem; color:#587252; line-height:1.7; font-weight:600; }
+
+  /* CTA BANNER */
+  .cta-banner { background:var(--earth-tan); padding:4.5rem 2rem; text-align:center; }
+  .cta-banner h2 { font-size:clamp(1.8rem,4vw,2.7rem); color:var(--green-dark); margin-bottom:.8rem; }
+  .cta-banner p { color:var(--earth-brown); font-weight:700; font-size:1.05rem; margin-bottom:2rem; max-width:550px; margin-left:auto; margin-right:auto; }
+  .btn-dark { background:var(--green-dark); color:white; padding:1rem 2.8rem; border-radius:50px; font-weight:800; font-size:1.1rem; text-decoration:none; transition:transform .2s,box-shadow .2s; display:inline-block; box-shadow:0 6px 24px rgba(0,0,0,.2); }
+  .btn-dark:hover { transform:translateY(-3px); box-shadow:0 14px 34px rgba(0,0,0,.3); background:var(--green-mid); }
+
+  /* CONTACT */
+  #contact { background:var(--earth-cream); }
+  .contact-wrap { display:grid; grid-template-columns:1fr 1.4fr; gap:3rem; align-items:start; }
+  .contact-info h3 { font-size:1.4rem; color:var(--green-dark); margin-bottom:1.4rem; }
+  .contact-item { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.3rem; padding:1.2rem; background:var(--white); border-radius:16px; transition:transform .2s; box-shadow:0 2px 12px var(--shadow); }
+  .contact-item:hover { transform:translateX(5px); }
+  .ci-icon { font-size:1.5rem; flex-shrink:0; width:32px; text-align:center; }
+  .contact-item strong { display:block; color:var(--green-dark); font-size:.85rem; margin-bottom:.2rem; }
+  .contact-item span { color:#587252; font-size:.95rem; font-weight:600; }
+  .contact-item a { color:#587252; font-size:.95rem; font-weight:600; text-decoration:none; }
+  .contact-item a:hover { color:var(--green-mid); }
+  .contact-form { background:var(--white); border-radius:26px; padding:2.5rem; box-shadow:0 4px 24px var(--shadow); }
+  .contact-form h3 { font-size:1.4rem; color:var(--green-dark); margin-bottom:1.5rem; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .form-group { margin-bottom:1.1rem; }
+  .form-group label { display:block; font-weight:800; font-size:.85rem; color:var(--green-dark); margin-bottom:.4rem; }
+  .form-group input,.form-group select,.form-group textarea { width:100%; padding:.75rem 1rem; border:2px solid var(--earth-warm); border-radius:12px; font-family:'Nunito',sans-serif; font-size:.95rem; color:var(--text-dark); background:var(--earth-cream); transition:border-color .2s; outline:none; }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--green-mid); background:white; }
+  .form-group textarea { resize:vertical; min-height:110px; }
+  .btn-submit { width:100%; background:linear-gradient(135deg,var(--green-mid),var(--green-dark)); color:white; border:none; padding:1rem; border-radius:50px; font-family:'Fredoka One',cursive; font-size:1.2rem; cursor:pointer; transition:transform .2s,box-shadow .2s; letter-spacing:.5px; }
+  .btn-submit:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(74,140,63,.45); }
+
+  /* FOOTER */
+  footer { background:var(--green-dark); color:var(--green-light); padding:3.5rem 2rem 2rem; }
+  .footer-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem; }
+  .footer-brand .logo-text { font-size:1.2rem; display:block; margin-bottom:.7rem; }
+  .footer-brand p { font-size:.88rem; line-height:1.75; color:var(--green-light); opacity:.85; }
+  footer h4 { font-family:'Fredoka One',cursive; color:var(--earth-tan); font-size:1.05rem; margin-bottom:1rem; }
+  footer ul { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+  footer ul li a { color:var(--green-light); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s; }
+  footer ul li a:hover { color:var(--earth-tan); }
+  .footer-bottom { max-width:1120px; margin:2rem auto 0; border-top:1px solid rgba(255,255,255,.1); padding-top:1.5rem; text-align:center; font-size:.8rem; opacity:.55; }
+
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity .65s ease,transform .65s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* MOBILE */
+  @media(max-width:900px) {
+    .review-card { flex:0 0 calc(50% - .75rem); }
+  }
+  @media(max-width:768px) {
+    .nav-links { display:none; flex-direction:column; position:absolute; top:70px; left:0; right:0; background:var(--green-dark); padding:1.5rem 2rem; gap:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3); }
+    .nav-links.open { display:flex; }
+    .hamburger { display:flex; }
+    .contact-wrap { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .hero-trust { gap:1.2rem; }
+    .hero-btns { flex-direction:column; align-items:center; }
+    .review-card { flex:0 0 calc(100% - 0px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-text">🔧 Lomupo <span>Plumbing & Heating LLC</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:+12012721855" class="nav-cta">📞 (201) 272-1855</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-blob b3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Midland Park, NJ &amp; All of Bergen County</div>
+    <h1>Plumbing Done <span>Right the First Time</span> 🏆</h1>
+    <p class="hero-sub">Professional, knowledgeable, and genuinely great people. Lomupo Plumbing &amp; Heating LLC has been the trusted choice for Bergen County homeowners — and the reviews speak for themselves.</p>
+    <div class="hero-btns">
+      <a href="tel:+12012721855" class="btn-primary">📞 Call (201) 272-1855</a>
+      <a href="#contact" class="btn-ghost">📅 Request a Visit</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="ti">⭐</span> 5-Star Rated</div>
+      <div class="trust-item"><span class="ti">🏠</span> Residential &amp; Commercial</div>
+      <div class="trust-item"><span class="ti">⚡</span> Prompt &amp; Punctual</div>
+      <div class="trust-item"><span class="ti">🧹</span> Clean &amp; Professional</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><span class="stat-num">⭐ 5.0</span><span class="stat-label">Google Rating</span></div>
+    <div><span class="stat-num">30+</span><span class="stat-label">Google Reviews</span></div>
+    <div><span class="stat-num">Bergen</span><span class="stat-label">County Coverage</span></div>
+    <div><span class="stat-num">Fast</span><span class="stat-label">Response Times</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container text-center">
+    <p class="section-eyebrow">What We Do</p>
+    <h2 class="section-title">Our Plumbing &amp; Heating Services</h2>
+    <p class="section-sub">From clogged drains to full gas line installs — our expert team handles it all with professionalism, care, and a clean worksite every time.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="svc-icon">🔧</span>
+        <h3>Plumbing Repairs</h3>
+        <p>Leaks, burst pipes, running toilets, broken fixtures — fast, reliable repairs for homes and businesses.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🔥</span>
+        <h3>Heating Systems</h3>
+        <p>Boiler installs, furnace repairs, radiator service, and complete heating system tune-ups to keep you warm.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🌊</span>
+        <h3>Water Heaters</h3>
+        <p>Tank and tankless water heater installations, repairs, and replacements at the best value for your budget.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🛁</span>
+        <h3>Bathroom &amp; Kitchen</h3>
+        <p>Faucets, toilets, sinks, garbage disposals, and full fixture upgrades — done right and left spotless.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🔥</span>
+        <h3>Gas Lines</h3>
+        <p>New gas line runs, extensions, and connections for grills, generators, appliances, and pool sheds.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🚰</span>
+        <h3>Drain Cleaning</h3>
+        <p>Clogged drains, slow sinks, and sewer line problems cleared efficiently — no mess left behind.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🏊</span>
+        <h3>Pool &amp; Cabana Plumbing</h3>
+        <p>Pool house opening/closing, cabana plumbing repairs, and seasonal maintenance throughout the year.</p>
+      </div>
+      <div class="service-card">
+        <span class="svc-icon">🔍</span>
+        <h3>Inspections &amp; Maintenance</h3>
+        <p>Preventative checkups, annual maintenance, and pre-sale inspections to catch problems early.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="areas">
+  <div class="container text-center">
+    <p class="section-eyebrow">Where We Work</p>
+    <h2 class="section-title">Proudly Serving Bergen County</h2>
+    <p class="section-sub">Based at 64 Godwin Ave in Midland Park, we serve homeowners and businesses throughout Bergen County and surrounding areas. Not sure if we cover your town? Just call!</p>
+    <div class="areas-grid reveal">
+      <div class="area-pill">📍 Midland Park</div>
+      <div class="area-pill">📍 Waldwick</div>
+      <div class="area-pill">📍 Ridgewood</div>
+      <div class="area-pill">📍 Ho-Ho-Kus</div>
+      <div class="area-pill">📍 Ramsey</div>
+      <div class="area-pill">📍 Allendale</div>
+      <div class="area-pill">📍 Wyckoff</div>
+      <div class="area-pill">📍 Franklin Lakes</div>
+      <div class="area-pill">📍 Paramus</div>
+      <div class="area-pill">📍 Glen Rock</div>
+      <div class="area-pill">📍 Fair Lawn</div>
+      <div class="area-pill">📍 Hawthorne</div>
+      <div class="area-pill">📍 Oakland</div>
+      <div class="area-pill">📍 Mahwah</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="container text-center">
+    <p class="section-eyebrow">Simple Process</p>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Getting your plumbing or heating fixed is easy. Here's what to expect when you reach out to Lomupo.</p>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Call or Email Us</h3>
+        <p>Reach out by phone or email. Scheduling is easy and precise — we get back to you fast and set a clear appointment.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We Show Up On Time</h3>
+        <p>Our technicians are punctual and professional. They arrive when they say they will — no vague windows.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Diagnosis &amp; Explanation</h3>
+        <p>We take time to understand your issue, explain everything in detail, and walk you through the best options.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Clean, Expert Work ✅</h3>
+        <p>We do the job right the first time and leave your home as clean as we found it — no cleanup needed on your end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container text-center">
+    <p class="section-eyebrow">Why Lomupo?</p>
+    <h2 class="section-title">What Makes Us Different</h2>
+    <p class="section-sub">We're not a faceless company. Joey Lomupo and his team bring expertise, honesty, and genuine care to every job.</p>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div><h3>Prompt &amp; Punctual</h3><p>We show up when we say we will — even for emergencies. Customers consistently praise our responsiveness and fast turnaround.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div><h3>Expert Craftsmanship</h3><p>Every technician is knowledgeable and skilled. We do the job right the first time, every time — no callbacks needed.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧹</div>
+        <div><h3>Spotlessly Clean</h3><p>We respect your home. Our team works carefully and leaves no mess — you won't need to clean up a thing after we leave.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <div><h3>Fair &amp; Honest Pricing</h3><p>We even declined to charge a customer when there was nothing to fix. That's the kind of integrity you can count on.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <div><h3>Clear Communication</h3><p>David, Thomas, Stephen, and the whole team take time to explain everything and answer every question — no jargon, no rush.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div><h3>A Team You Can Trust</h3><p>From Joe and Patty in the office to every tech in the field — the Lomupo team is courteous, kind, and truly wonderful to work with.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container text-center">
+    <p class="section-eyebrow">Happy Customers</p>
+    <h2 class="section-title">What Bergen County Says About Us</h2>
+    <p class="section-sub">Over 30 five-star Google reviews — here's what real Lomupo customers have to say.</p>
+    <div class="rating-badge">
+      <span class="rating-num">5.0</span>
+      <div class="rating-info">
+        <div class="stars">★★★★★</div>
+        <div class="rating-lbl">Google Reviews · Midland Park, NJ</div>
+      </div>
+    </div>
+
+    <div class="reviews-carousel-wrap">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Technicians were professional, knowledgeable, and friendly. They explained everything in detail and took time to understand our plumbing issues. Punctual and clean. Shout out to David! Great technician! Highly recommend Lomupo Plumbing!</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Josh Pang</div>
+          <div class="reviewer-meta">Local Guide · 1 month ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">They were happy to guide me in purchasing the right product, placed the order, picked it up and installed 2 days after initial order. Attention to detail was wonderful and no clean up by me was necessary.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Alice Spinello</div>
+          <div class="reviewer-meta">Midland Park, NJ · 1 month ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">I have never left a review before but my recent experience with LOMUPO Plumbing has prompted me to do so. I cannot speak highly enough of the experience I had with them. Scheduling was easy and precise and David and Thomas could not have been better.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Jeff Lawrence</div>
+          <div class="reviewer-meta">Bergen County · 5 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">This is an extraordinarily excellent company! Joe Lomupo and his entire staff are all technically knowledgeable, courteous and amazingly helpful. This is definitely a five-star company!</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Jan Marion</div>
+          <div class="reviewer-meta">Bergen County · 5 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Joey and his crew are super dependable, super responsive and extremely efficient. They always show up when needed and their work is fast and their prices are fair. I highly recommend them.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Derrick Zimmermann</div>
+          <div class="reviewer-meta">Local Guide · 1 month ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">I cannot say enough how fantastic this company is. They are knowledgeable, timely, trustworthy and clean. We have used them for years. Joey Lomupo is a top notch professional who explains in detail what has happened and how to fix it.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Kathleen Duffy</div>
+          <div class="reviewer-meta">Local Guide · 11 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">They came recommended by another plumber who couldn't do the job! They operated quickly to solve the problem, were professional and courteous.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Stacey Brann-Hotchkiss</div>
+          <div class="reviewer-meta">Bergen County · 6 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">Lomupo Plumbing was awesome. Finished 3 jobs in 1 day. They ran a new gas line to our deck for the grill. Prompt, courteous, professional and experienced. Would highly recommend them.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Nancy Sakalosky</div>
+          <div class="reviewer-meta">Bergen County · 9 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">I have been looking for a new plumber for almost 10 years. Lomupo has been wonderful. They do the job right the first time. Everything has been easy from the initial phone call to the plumbers walking out of my home.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Linda Paige</div>
+          <div class="reviewer-meta">Bergen County · 10 months ago</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text">To my surprise, they did not charge me for making the trip when there was nothing to fix, which I thought was very honorable.</p>
+          <div class="stars">★★★★★</div>
+          <div class="reviewer-name">Rich Mei</div>
+          <div class="reviewer-meta">Bergen County · 8 months ago</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-btns">
+      <button class="carousel-btn" onclick="prevSlide()">‹</button>
+      <button class="carousel-btn" onclick="nextSlide()">›</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <p style="margin-top:2rem;color:var(--green-light);font-weight:700;font-size:.9rem;">Love our work? <a href="https://g.page/r/" target="_blank" style="color:var(--earth-tan);text-decoration:underline;">Leave us a Google review! ⭐</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container text-center">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Have a question? We've answered the most common ones below — or give us a call!</p>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you offer free estimates? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>Yes! We provide estimates and are happy to guide you in choosing the right product or solution before any work begins. Just give us a call to get started.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What areas do you serve? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>We're based in Midland Park, NJ and serve all of Bergen County including Ridgewood, Waldwick, Wyckoff, Ho-Ho-Kus, Ramsey, Paramus, and many more. Not sure? Just call us!</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What are your hours? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>We're open Monday through Friday, 7:30 AM – 4:30 PM. We are closed on Saturdays and Sundays. For urgent matters, give us a call and we'll do our best to help.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How quickly can you respond to an issue? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>We're known for fast, responsive service. Even for first-time customers, Joe has been known to arrive in record time for emergencies. We prioritize getting to you quickly when it matters.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you handle gas line work? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>Yes! We handle gas line runs, extensions, and connections including outdoor lines for grills, pool sheds, and generators. All gas work is done safely and up to code.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Will you clean up after the job? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>Absolutely. Our team is careful and tidy — customers consistently mention that no cleanup was needed after we finished. We respect your home as if it were our own.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><p>Yes, Lomupo Plumbing &amp; Heating LLC is a fully licensed and insured plumbing and heating contractor in New Jersey. You can hire us with complete confidence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Ready to Get the Job Done? 🔧</h2>
+  <p>Call or email us today — professional, punctual, and always a pleasure to work with.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="tel:+12012721855" class="btn-dark">📞 Call (201) 272-1855</a>
+    <a href="mailto:joe@lomupoplumbing.com" class="btn-dark" style="background:var(--earth-brown);">✉️ Email Joe</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title">Book a Service Call</h2>
+      <p class="section-sub">Fill out the form and we'll get back to you promptly — or call us directly!</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <div class="contact-info">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <span class="ci-icon">📞</span>
+          <div><strong>Phone</strong><a href="tel:+12012721855">(201) 272-1855</a></div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">✉️</span>
+          <div><strong>Email</strong><a href="mailto:joe@lomupoplumbing.com">joe@lomupoplumbing.com</a></div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">📍</span>
+          <div><strong>Address</strong><span>64 Godwin Ave<br>Midland Park, NJ 07432</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">🕐</span>
+          <div><strong>Hours</strong><span>Mon – Fri: 7:30 AM – 4:30 PM<br>Sat – Sun: Closed</span></div>
+        </div>
+        <div class="contact-item">
+          <span class="ci-icon">🛠️</span>
+          <div><strong>Licensed &amp; Insured</strong><span>Fully licensed NJ plumbing &amp; heating contractor</span></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message 📬</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(201) 555-0000"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@email.com"></div>
+        <div class="form-group"><label>Town / City</label><input type="text" placeholder="Midland Park, NJ"></div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Plumbing Repair</option>
+            <option>Heating System</option>
+            <option>Water Heater</option>
+            <option>Gas Line Work</option>
+            <option>Bathroom / Kitchen</option>
+            <option>Drain Cleaning</option>
+            <option>Pool / Cabana Plumbing</option>
+            <option>Inspection / Maintenance</option>
+            <option>Emergency</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tell Us What's Going On</label><textarea placeholder="Describe the issue or what you need help with..."></textarea></div>
+        <button class="btn-submit" onclick="handleSubmit()">🔧 Submit Service Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">🔧 Lomupo <span>Plumbing & Heating LLC</span></span>
+      <p>64 Godwin Ave, Midland Park, NJ 07432<br>Serving all of Bergen County, NJ.<br>Licensed, insured, and trusted by your neighbors.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Plumbing Repairs</a></li>
+        <li><a href="#services">Heating Systems</a></li>
+        <li><a href="#services">Water Heaters</a></li>
+        <li><a href="#services">Gas Lines</a></li>
+        <li><a href="#services">Drain Cleaning</a></li>
+        <li><a href="#services">Pool Plumbing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#areas">Service Areas</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#why">Why Lomupo</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+12012721855">📞 (201) 272-1855</a></li>
+        <li><a href="mailto:joe@lomupoplumbing.com">✉️ joe@lomupoplumbing.com</a></li>
+        <li><a>📍 64 Godwin Ave, Midland Park</a></li>
+        <li><a>🕐 Mon–Fri: 7:30 AM – 4:30 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Lomupo Plumbing &amp; Heating LLC · Midland Park, NJ · All rights reserved.</div>
+</footer>
+
+<script>
+  // Nav
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  revealEls.forEach(r => obs.observe(r));
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Form
+  function handleSubmit() {
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = "✅ Message Sent! We'll be in touch soon.";
+    btn.style.background = 'linear-gradient(135deg, #2d5a27, #1a3a16)';
+    btn.disabled = true;
+  }
+
+  // Reviews Carousel
+  const track = document.getElementById('reviewsTrack');
+  const cards = track.querySelectorAll('.review-card');
+  const dotsContainer = document.getElementById('carouselDots');
+  let current = 0;
+
+  function getVisible() {
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 900) return 2;
+    return 3;
+  }
+
+  function totalSlides() {
+    return Math.ceil(cards.length / getVisible());
+  }
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides(); i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === current ? ' active' : '');
+      d.onclick = () => goTo(i);
+      dotsContainer.appendChild(d);
+    }
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(n, totalSlides() - 1));
+    const visible = getVisible();
+    const cardWidth = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${current * visible * cardWidth}px)`;
+    buildDots();
+  }
+
+  function nextSlide() { goTo(current + 1 >= totalSlides() ? 0 : current + 1); }
+  function prevSlide() { goTo(current - 1 < 0 ? totalSlides() - 1 : current - 1); }
+
+  window.addEventListener('resize', () => { current = 0; goTo(0); });
+  buildDots();
+
+  // Auto-advance
+  setInterval(() => nextSlide(), 5000);
+</script>
+</body>
+</html>
